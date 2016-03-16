@@ -32,51 +32,51 @@ Few of the other concepts used in this simple applications are below,
 
 ##Implementation specifics: 
 
-      <i>com.jpm.stockmarket.config.StockWebApplication</i> <br/>
+       com.jpm.stockmarket.config.StockWebApplication
 The Starter class which launches the application inside the spring-boot container. The class also import Spring configuration classes containing bean definition.
 
-      <i>com.jpm.stockmarket.config.StockConfig</i> <br/>
+       com.jpm.stockmarket.config.StockConfig
 The primary configuration class which contains the StockMarket service bean definition.
 
-      <i>com.jpm.stockmarket.controller.StockServiceController</i> <br/>
+       com.jpm.stockmarket.controller.StockServiceController 
 Spring MVC controller class where all the service endpoints are defined. Corresponding business logic is invoked from the service methods.<br/>
 The “StockManager” instance is a singleton bean injected to the Controller.
 
-      <i>com.jpm.stockmarket.service.IStockManager</i></br> 
-      <i>com.jpm.stockmarket.service.StockManager</i></br> 
+       com.jpm.stockmarket.service.IStockManager
+       com.jpm.stockmarket.service.StockManager 
 The service class containing the root implementation.
 
-      <i>com.jpm.stockmarket.service.ITradeManager</i> 
-      <i>com.jpm.stockmarket.service.TradeManager</i> 
+       com.jpm.stockmarket.service.ITradeManager  
+       com.jpm.stockmarket.service.TradeManager  
 Stores the trades which are made and provides additional operation on the trades. 
 
-      <i>com.jpm.stockmarket.dto.Stock</i> 
-      <i>com.jpm.stockmarket.dto.StockIndicator</i> 
-      <i>com.jpm.stockmarket.dto.StockSymbol</i> 
-      <i>com.jpm.stockmarket.dto.Trade</i> 
+       com.jpm.stockmarket.dto.Stock  
+       com.jpm.stockmarket.dto.StockIndicator  
+       com.jpm.stockmarket.dto.StockSymbol  
+       com.jpm.stockmarket.dto.Trade  
 DTO Objects.
 
-      <i>com.jpm.stockmarket.domainmodel.StockRequest</i> 
-      <i>com.jpm.stockmarket.domainmodel.StockResponse</i>
+       com.jpm.stockmarket.domainmodel.StockRequest  
+       com.jpm.stockmarket.domainmodel.StockResponse 
 Domain object containing REST request and response mappings.
 
 
 ##Build and Unit Tests:
 
-Unit tests are added to the test/java directory. Please find the instruction below on building and executing unit tests
+Unit tests are added to the test/java directory. <br/>Please find the instruction below on building and executing unit tests
 
 ###Pre requisites-
--Java 1.8
--Maven 3.3
--Git client
+	Java 1.8
+	Maven 3.3
+	Git client
 
 ###Build/invoke tests-
 
--git clone https://github.com/Vysh787/JPM-Simple-stock-market.git
--cd JPM-Simple-stock-market
--mvn clean install
+	git clone https://github.com/Vysh787/JPM-Simple-stock-market.git
+	cd JPM-Simple-stock-market
+	mvn clean install
 
-*Builds the project and executes Unit tests.
+Builds the project and executes Unit tests.
 
 ##See it working! -
 The entire micro service has been integrated with Swagger UI which provides an intuitive GUI for the testing the rest service and also scope for extensive documentation in the code.
