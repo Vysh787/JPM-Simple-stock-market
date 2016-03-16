@@ -13,6 +13,8 @@ import java.util.Collection;
 
 /**
  * Created by vaisakh on 15/03/2016.
+ *
+ * The service class containing the root implementation for Stock Service capabilities.
  */
 public class StockManager implements IStockManager {
 
@@ -20,7 +22,14 @@ public class StockManager implements IStockManager {
     private int DURATION = 5;
     private static final Logger LOGGER = LoggerFactory.getLogger(StockManager.class);
 
-
+    /**+
+     * Calculates the Dividend yield for a given Stock and price
+     *
+     * @param stockSymbolStr
+     * @param price
+     * @return
+     * @throws StockServiceException
+     */
     @Override public double calculateDividendYield(String stockSymbolStr, double price)
         throws StockServiceException{
 
@@ -33,6 +42,13 @@ public class StockManager implements IStockManager {
         }
     }
 
+    /**+
+     * Calculates PE Ratio for a given stock and price.
+     *
+     * @param stockSymbolStr
+     * @param price
+     * @return
+     */
     @Override public double calculatePERatio(String stockSymbolStr, double price) {
         StockSymbol stockSymbol = getStockSymbol(stockSymbolStr);
         if (stockSymbol != null) {
@@ -43,6 +59,15 @@ public class StockManager implements IStockManager {
         }
     }
 
+    /**+
+     *
+     * Records a trade with stock,buy/sell indicator,quantity and price.
+     *
+     * @param stockSymbolStr
+     * @param stockIndicatorStr
+     * @param quantity
+     * @param price
+     */
     @Override
     public void recordTrade(String stockSymbolStr, String stockIndicatorStr, int quantity, double price) {
         try {
@@ -70,6 +95,15 @@ public class StockManager implements IStockManager {
         }
     }
 
+    /**+
+     * Calculate volume weighted stock price for a givenb stock.
+     * @param isWithDuration flag specifies if all the trades has to be considered for the calcualation or
+     * a predefined duration of 5 minutes.
+     *
+     * @param stockSymbolStr
+     * @param isWithDuration
+     * @return
+     */
     @Override public double calculateVolumeWeightedStockPrice(String stockSymbolStr ,boolean isWithDuration) {
         try {
             StockSymbol stockSymbol = getStockSymbol(stockSymbolStr);
@@ -100,6 +134,13 @@ public class StockManager implements IStockManager {
         }
     }
 
+    /**+
+     *
+     * Calculates GBCE All share index based on the volume weighted stock price for all the stocks.
+     *
+     * @return
+     * @throws StockServiceException
+     */
     @Override
     public double calculateGBCEAllShareIndex() throws StockServiceException{
         try {

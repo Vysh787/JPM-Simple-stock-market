@@ -15,6 +15,7 @@ import java.util.List;
 
 /**
  * Created by vaisakh on 14/03/2016.
+ * TradeManager stores the trades which are made and provides additional operation on it.
  */
 public class TradeManager implements ITradeManager{
 
@@ -36,6 +37,11 @@ public class TradeManager implements ITradeManager{
         return tm;
     }
 
+    /**+
+     * Registers a trade.
+     *
+     * @param trade
+     */
     public void addTrade(Trade trade) {
         synchronized (this.trades) {
             this.trades.add(trade);
@@ -48,6 +54,14 @@ public class TradeManager implements ITradeManager{
         return this.trades.size();
     }
 
+    /**+
+     * Fetches trade made during the specified duration forthe specified Stock.
+     * if @param duration is 0 , all the trades made on the specified Stock is returned.
+     *
+     * @param stock
+     * @param duration
+     * @return
+     */
     public Collection<Trade> getTradesForDuration(Stock stock,int duration){
         synchronized (this.trades) {
             Collection<Trade> trades = CollectionUtils.select(this.trades, new TradeDurationPredicate(duration , stock.getStockSymbol()));
@@ -55,6 +69,10 @@ public class TradeManager implements ITradeManager{
         }
     }
 
+    /**+
+     *
+     * Predicate class for comapring trade objects based on the timestamp.
+     */
     private class TradeDurationPredicate implements Predicate {
 
         StockSymbol stockSymbol;
