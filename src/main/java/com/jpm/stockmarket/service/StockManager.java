@@ -139,16 +139,25 @@ public class StockManager implements IStockManager {
      * Calculates GBCE All share index based on the volume weighted stock price for all the stocks.
      *
      * @return
-     * @throws StockServiceException
+     * @throws S    tockServiceException
      */
     @Override
     public double calculateGBCEAllShareIndex() throws StockServiceException{
         try {
-            double volumeWeightedProduct = 1D;
+            double volumeWeightedProduct = 1D;//--Initialize to 1 so that the product doesn't error out
+            boolean isTradesPresent = false;
+
             for (StockSymbol s : StockSymbol.values()) {
                 double tmpVWSP = calculateVolumeWeightedStockPrice(s.name(), false);
-                volumeWeightedProduct *= (tmpVWSP > 0)?tmpVWSP:1D/*Default*/;
+                if(tmpVWSP == 0)
+                    continue;
+
+                isTradesPresent = true; //--Set the flag if there are valid trades available.
+                volumeWeightedProduct *=tmpVWSP;
             }
+
+            //--If there are not trades available, return 0D
+            if(!isTradesPresent) return 0D;
 
             double geoMean = Math.pow(volumeWeightedProduct, 1.0 / StockSymbol.values().length);
             return geoMean;
