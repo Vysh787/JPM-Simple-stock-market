@@ -15,7 +15,7 @@ Few of the other concepts used in this simple applications are below,
 	-JUnit		
 	-Maven
 	-Java 8
-        -Jackson
+       -Jackson
 
 ##Problem definition:
 
@@ -78,13 +78,13 @@ Unit tests are added to the test/java directory. <br/>Please find the instructio
 
 Builds the project and executes Unit tests.
 
-##See it working! -
+##See it working!
 The entire micro service has been integrated with Swagger UI which provides an intuitive GUI for the testing the rest service and also scope for extensive documentation in the code.
 Swagger UI can be seamlessly integrated with Spring MVC based applications.
 
 ###Running the spring-boot application-
 
-mvn spring-boot:run
+        mvn spring-boot:run
 
 ###Swagger GUI- 
 
