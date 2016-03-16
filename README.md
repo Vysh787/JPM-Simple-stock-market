@@ -88,7 +88,8 @@ Swagger UI can be seamlessly integrated with Spring MVC based applications.
 
 ###Swagger GUI- 
 
-The swagger GUI can be accessed at 
+The swagger GUI can be accessed at,
+
         http://localhost:9192/stock-market-api/swagger-ui.html
 Using the swagger UI, the rest API’s can be invoked by passing the request body/params. 
 
