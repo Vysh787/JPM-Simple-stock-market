@@ -5,6 +5,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * Stock object with StockSymbol and utility methods.
+ *
  * Created by vaisakh on 15/03/2016.
  */
 public class Stock{
