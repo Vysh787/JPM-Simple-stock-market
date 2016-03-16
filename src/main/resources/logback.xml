@@ -1,0 +1,38 @@
+<configuration scan="true" scanPeriod="60">
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <Pattern>%date  %replace([%-15.15thread]){'\s', ''} StockMarket %-5level %logger{36}%replace( %X{log-keyword} ){' ',' '}- %msg%nopex%n
+                </Pattern>
+            </layout>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>/var/log/gg/stock-market-api.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <fileNamePattern>/var/log/gg/stock-market-api.%i.log</fileNamePattern>
+            <minIndex>1</minIndex>
+            <maxIndex>1</maxIndex>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>50MB</maxFileSize>
+        </triggeringPolicy>
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <Pattern>%date %level  %replace([%-15.15thread]){'\s', ''} StockMarket %logger{36}%replace( %X{log-keyword} ){'  ',' '}- %msg%nopex%n</Pattern>
+            </layout>
+        </encoder>
+    </appender>
+
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </root>
+
+
+    <logger name="com.jpm.stockmarket" level="DEBUG"/>
+    <logger name="com.mangofactory.swagger" level="ERROR"/>
+    <logger name="org.springframework" level="INFO"/>
+</configuration>

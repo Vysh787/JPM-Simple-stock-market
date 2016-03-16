@@ -1,1 +1,1 @@
-# JPM-Simple-stock-market
+# Simple-stock-market
