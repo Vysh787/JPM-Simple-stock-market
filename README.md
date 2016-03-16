@@ -1,12 +1,11 @@
 #Simple Stock Market
 
-The Simple Stock market is implemented as a Spring-Boot micro service application.Micro service architectures are the becoming an industry standard as the most evolved form of service oriented architectures (SOA). It relies on the concept of small application suites which are self contained and can be deployed independently. Spring-boot is one of the most widely used technology for implementing micro services.<br/>
+The Simple Stock market is implemented as a Spring-Boot micro service application. Micro service architecture is becoming an industry standard as the most evolved form of service oriented architectures (SOA). It relies on the concept of small application suites which are self contained and can be deployed independently. Spring-boot is one of the most widely used technology for implementing micro services.<br/>
 The Simple-stock-market micro service has multiple REST service endpoints exposed for every major operation.
-Being a service oriented application basic thread safety has been taken care of.
+As service oriented applications are multithreaded in nature, basic thread safety has been taken care of.
 <br/>
-Note: Being a demo application, Advanced functionalities such as clean up expired trades and use of concurrent data structures have not been used.
 
-Few of the other concepts used in this simple applications are below,
+Few of the other concepts/technologies used in the application are below,
 
 	-Spring MVC
 	-Spring Core
@@ -15,7 +14,8 @@ Few of the other concepts used in this simple applications are below,
 	-JUnit		
 	-Maven
 	-Java 8
-       -Jackson
+        -Jackson
+Note: Advanced functionalities such as clean up expired trades and use of concurrent data structures are not been used.
 
 ##Problem definition:
 
@@ -88,7 +88,8 @@ Swagger UI can be seamlessly integrated with Spring MVC based applications.
 
 ###Swagger GUI- 
 
-The swagger GUI can be accessed at http://localhost:9192/stock-market-api/swagger-ui.html
-Using the swagger GUI the rest API’s can be invoked by passing the request body/params. Please find a sample screenshot below.
+The swagger GUI can be accessed at 
+        http://localhost:9192/stock-market-api/swagger-ui.html
+Using the swagger UI, the rest API’s can be invoked by passing the request body/params. 
 
 ![Swagger UI snapshot](https://github.com/Vysh787/JPM-Simple-stock-market/blob/master/src/main/resources/Swagger-UI.png)
