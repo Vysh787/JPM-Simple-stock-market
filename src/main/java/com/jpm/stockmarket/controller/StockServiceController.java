@@ -22,6 +22,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Created by vaisakh on 14/03/2016.
+ * Spring MVC controller class where all the service endpoints are defined.
+ * Corresponding business logic is invoked from the service methods.
+ * The “StockManager” instance is a singleton bean injected to the Controller.
  */
 
 @Api("Stocks service controller")
