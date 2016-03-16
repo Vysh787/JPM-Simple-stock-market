@@ -89,7 +89,6 @@ public class StockManager implements IStockManager {
                 }
 
                 if(tradedQuantity > 0) volumeWeightedStockPrice = (tradedPrice * tradedQuantity)/tradedQuantity;
-                else volumeWeightedStockPrice = 1D;//Default
 
                 return volumeWeightedStockPrice;
             } else {
@@ -106,7 +105,8 @@ public class StockManager implements IStockManager {
         try {
             double volumeWeightedProduct = 1D;
             for (StockSymbol s : StockSymbol.values()) {
-                volumeWeightedProduct *= calculateVolumeWeightedStockPrice(s.name(), false);
+                double tmpVWSP = calculateVolumeWeightedStockPrice(s.name(), false);
+                volumeWeightedProduct *= (tmpVWSP > 0)?tmpVWSP:1D/*Default*/;
             }
 
             double geoMean = Math.pow(volumeWeightedProduct, 1.0 / StockSymbol.values().length);
